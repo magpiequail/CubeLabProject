@@ -62,62 +62,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CameraManager.cs" />
-    <Compile Include="Assets\Scripts\ChooseObjects.cs" />
-    <Compile Include="Assets\Scripts\Copier.cs" />
-    <Compile Include="Assets\Scripts\Diary.cs" />
-    <Compile Include="Assets\Scripts\DiaryInteraction.cs" />
-    <Compile Include="Assets\Scripts\Dimension.cs" />
-    <Compile Include="Assets\Scripts\InventoryManager.cs" />
-    <Compile Include="Assets\Scripts\New Folder\BlockStat.cs" />
-    <Compile Include="Assets\Scripts\New Folder\FloorGrid.cs" />
-    <Compile Include="Assets\Scripts\New Folder\PastArrayBasedMovement.cs" />
-    <Compile Include="Assets\Scripts\New Folder\PresentArrayBasedMovement.cs" />
-    <Compile Include="Assets\Scripts\New Folder\RadialProgress.cs" />
-    <Compile Include="Assets\Scripts\PastCharacterCollider.cs" />
-    <Compile Include="Assets\Scripts\PastCharacterMovement.cs" />
-    <Compile Include="Assets\Scripts\PresentCharacterCollider.cs" />
-    <Compile Include="Assets\Scripts\PresentCharacterMovement.cs" />
-    <Compile Include="Assets\Scripts\SceneSetting.cs" />
-    <Compile Include="Assets\Scripts\Test.cs" />
+    <Compile Include="Assets\Scripts\BlockPath.cs" />
+    <Compile Include="Assets\Scripts\BlockStat.cs" />
+    <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\DoorDefault.cs" />
+    <Compile Include="Assets\Scripts\DoorLight.cs" />
+    <Compile Include="Assets\Scripts\DoorRound.cs" />
+    <Compile Include="Assets\Scripts\DoorTriangle.cs" />
+    <Compile Include="Assets\Scripts\EditBlock.cs" />
+    <Compile Include="Assets\Scripts\Floor.cs" />
+    <Compile Include="Assets\Scripts\InputSettings.cs" />
+    <Compile Include="Assets\Scripts\MoveCount.cs" />
+    <Compile Include="Assets\Scripts\Moves.cs" />
+    <Compile Include="Assets\Scripts\RoundKey.cs" />
+    <Compile Include="Assets\Scripts\Teleporter.cs" />
+    <Compile Include="Assets\Scripts\TriangleKey.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/2020CubeLab/CubeLabProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

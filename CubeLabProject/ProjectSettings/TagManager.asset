@@ -13,6 +13,7 @@ TagManager:
   - Room1
   - Room2
   - Living Room
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Past Camera
   - Present Camera
   - Accessible Floor
-  - 
-  - 
+  - Left Camera
+  - Right Camera
   - 
   - 
   - 
