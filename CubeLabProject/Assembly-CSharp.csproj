@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BlockPath.cs" />
     <Compile Include="Assets\Scripts\BlockStat.cs" />
+    <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DoorDefault.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\Floor.cs" />
     <Compile Include="Assets\Scripts\InputSettings.cs" />
     <Compile Include="Assets\Scripts\MoveCount.cs" />
+    <Compile Include="Assets\Scripts\MovementSetting.cs" />
     <Compile Include="Assets\Scripts\Moves.cs" />
     <Compile Include="Assets\Scripts\RoundKey.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />

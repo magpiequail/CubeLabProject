@@ -64,7 +64,7 @@ public class CharacterMovement : MonoBehaviour
                 characterAnim.Play("Walk");
             }
 
-            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 fl.SEMovement();
                 //characterAnim.Play("Idle_SE");
@@ -81,7 +81,7 @@ public class CharacterMovement : MonoBehaviour
                 characterAnim.SetInteger("Direction", 1);
                 characterAnim.Play("Walk_NW");
             }
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 fl.NEMovement();
                 //characterAnim.Play("Idle_NE");

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlockPath : MonoBehaviour
 {
     public bool run = true;
-
+    bool isHit = false;
     //public int rows = 5;
     //public float scaleX = 0.5f;
     //public float scaleY = -0.25f;
@@ -44,11 +44,12 @@ public class BlockPath : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Initialize();
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 worldPoint = CameraManager.currentCam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, transform.forward);
             Debug.DrawRay(worldPoint, transform.forward * 10, Color.red, 0.3f);
             if (hit)
             {
+                isHit = true;
                 endX = hit.collider.gameObject.GetComponent<BlockStat>().x;
                 endY = hit.collider.gameObject.GetComponent<BlockStat>().y;
 
@@ -59,23 +60,23 @@ public class BlockPath : MonoBehaviour
                 Run();
 
             }
-            else
-                return;
+            
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isHit)
         {
             foreach (GameObject obj in fl.gridArray)
             {
                 obj.GetComponent<BlockStat>().currentBlock = 0;
             }
-            if (path.Count-1 <= Moves.possibleMoves)
-            {
-                StartCoroutine("Delay");
-            }
-            else
-            {
-                Debug.Log("not enough moves");
-            }
+            StartCoroutine("Delay");
+            //if (path.Count-1 <= Moves.possibleMoves)
+            //{
+            //    StartCoroutine("Delay");
+            //}
+            //else
+            //{
+            //    Debug.Log("not enough moves");
+            //}
             
         }
 
@@ -122,14 +123,14 @@ public class BlockPath : MonoBehaviour
         for (int i = path.Count; i >= 2; i--)
         {
             
-            Moves.possibleMoves -= 1;
+            //Moves.possibleMoves -= 1;
             fl.charPosX = path[i - 2].GetComponent<BlockStat>().x;
             fl.charPosY = path[i - 2].GetComponent<BlockStat>().y;
             fl.SetAsCurrent(fl.charPosX, fl.charPosY);
             //character.transform.position = path[i - 2].transform.position;
             yield return new WaitForSeconds(delayTime);
         }
-        
+        isHit = false;
     }
 
 
@@ -185,7 +186,7 @@ public class BlockPath : MonoBehaviour
         Initialize();
         int x = startX;
         int y = startY;
-        int[] moveArray = new int[Moves.possibleMoves];
+        //int[] moveArray = new int[Moves.possibleMoves];
         for(int step = 1; step< fl.rows * fl.rows; step++)
         {
             foreach(GameObject obj in fl.gridArray)

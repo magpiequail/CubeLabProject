@@ -85,7 +85,7 @@ public class Floor : MonoBehaviour
 
     public void SEMovement()
     {
-        if (charPosY + 1 < rows && gridArray[charPosX, charPosY + 1] && Moves.possibleMoves > 0)
+        if (charPosY + 1 < rows && gridArray[charPosX, charPosY + 1]/* && Moves.possibleMoves > 0*/)
         {
             charPosY += 1;
             SetAsCurrent(charPosX, charPosY);
@@ -95,7 +95,7 @@ public class Floor : MonoBehaviour
     }
     public void NWMovement()
     {
-        if (charPosY - 1 > -1 && gridArray[charPosX, charPosY - 1] && Moves.possibleMoves > 0)
+        if (charPosY - 1 > -1 && gridArray[charPosX, charPosY - 1]/* && Moves.possibleMoves > 0*/)
         {
             charPosY -= 1;
             SetAsCurrent(charPosX, charPosY);
@@ -104,7 +104,7 @@ public class Floor : MonoBehaviour
     }
     public void SWMovement()
     {
-        if (charPosX + 1 < rows && gridArray[charPosX + 1, charPosY] && Moves.possibleMoves > 0)
+        if (charPosX + 1 < rows && gridArray[charPosX + 1, charPosY]/* && Moves.possibleMoves > 0*/)
         {
             charPosX += 1;
             SetAsCurrent(charPosX, charPosY);
@@ -113,7 +113,7 @@ public class Floor : MonoBehaviour
     }
     public void NEMovement()
     {
-        if (charPosX - 1 > -1 && gridArray[charPosX - 1, charPosY] && Moves.possibleMoves > 0)
+        if (charPosX - 1 > -1 && gridArray[charPosX - 1, charPosY]/* && Moves.possibleMoves > 0*/)
         {
             charPosX -= 1;
             SetAsCurrent(charPosX, charPosY);
