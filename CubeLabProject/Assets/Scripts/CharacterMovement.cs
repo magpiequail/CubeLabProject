@@ -9,10 +9,13 @@ public class CharacterMovement : MonoBehaviour
     public bool isHavingRoundKey = false;
     public bool isHavingTriangleKey = false;
     public GameObject floor;
+    float keyPressedTime = 0f;
 
     public int rows = 5;
 
     public float speed;
+    public float inputTriggerTime;
+    public float inputWaitTime;
     
     public Floor fl;
     private Door door;
@@ -48,12 +51,54 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("false");
             isInputAllowed = false;
         }
         //for keyboard inputs
+
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            keyPressedTime += Time.deltaTime;
+            if (keyPressedTime > inputTriggerTime)
+            {
+                keyPressedTime = inputTriggerTime - inputWaitTime;
+                fl.SWMovement();
+                characterAnim.SetInteger("Idle", 0);
+            }
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            keyPressedTime += Time.deltaTime;
+            if (keyPressedTime > inputTriggerTime)
+            {
+                keyPressedTime = inputTriggerTime - inputWaitTime;
+                fl.SEMovement();
+                characterAnim.SetInteger("Idle", 0);
+            }
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            keyPressedTime += Time.deltaTime;
+            if (keyPressedTime > inputTriggerTime)
+            {
+                keyPressedTime = inputTriggerTime - inputWaitTime;
+                fl.NWMovement();
+                characterAnim.SetInteger("Idle", 0);
+            }
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            keyPressedTime += Time.deltaTime;
+            if (keyPressedTime > inputTriggerTime)
+            {
+                keyPressedTime = inputTriggerTime - inputWaitTime;
+                fl.NEMovement();
+                characterAnim.SetInteger("Idle", 0);
+            }
+        }
         if (isInputAllowed)
         {
+            
             
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -62,6 +107,7 @@ public class CharacterMovement : MonoBehaviour
                 //characterAnim.SetTrigger("Jump");
                 characterAnim.SetInteger("Direction", 3);
                 characterAnim.Play("Walk");
+                keyPressedTime = 0f;
             }
 
             if (Input.GetKeyDown(KeyCode.S))
@@ -71,6 +117,7 @@ public class CharacterMovement : MonoBehaviour
                 //characterAnim.SetTrigger("Jump");
                 characterAnim.SetInteger("Direction", 4);
                 characterAnim.Play("Walk_SE");
+                keyPressedTime = 0f;
             }
 
             if (Input.GetKeyDown(KeyCode.Q))
@@ -80,6 +127,7 @@ public class CharacterMovement : MonoBehaviour
                 //characterAnim.SetTrigger("Jump");
                 characterAnim.SetInteger("Direction", 1);
                 characterAnim.Play("Walk_NW");
+                keyPressedTime = 0f;
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -88,6 +136,14 @@ public class CharacterMovement : MonoBehaviour
                 //characterAnim.SetTrigger("Jump");
                 characterAnim.SetInteger("Direction", 2);
                 characterAnim.Play("Walk_NE");
+                keyPressedTime = 0f;
+            }
+            if(Input.GetKeyUp(KeyCode.A) 
+                || Input.GetKeyUp(KeyCode.S) 
+                || Input.GetKeyUp(KeyCode.Q) 
+                || Input.GetKeyUp(KeyCode.W))
+            {
+                keyPressedTime = 0f;
             }
         }
         

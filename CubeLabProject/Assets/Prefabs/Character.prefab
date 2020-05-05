@@ -119,6 +119,8 @@ MonoBehaviour:
   floor: {fileID: 0}
   rows: 5
   speed: 2
+  inputTriggerTime: 0.5
+  inputWaitTime: 0.2
   fl: {fileID: 0}
 --- !u!1 &7929229091185135876
 GameObject:
