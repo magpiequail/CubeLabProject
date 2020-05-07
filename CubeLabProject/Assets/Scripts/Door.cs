@@ -11,7 +11,7 @@ public class Door :MonoBehaviour
     protected bool isHavingKey;
     private GameObject text;
     Door[] doorsArray;
-    public bool isAllOpen = false;
+    public static bool isAllOpen = false;
 
 
     private void Awake()
@@ -76,6 +76,7 @@ public class Door :MonoBehaviour
                 Application.Quit();
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            
         }
     }
 }

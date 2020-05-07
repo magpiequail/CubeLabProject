@@ -7,7 +7,7 @@ public class Teleporter : MonoBehaviour
     public GameObject otherTele;
     public GameObject attachedFloor;
     bool isSpacePressed = false;
-    bool isCharOn;
+    //bool isCharOn;
     bool isActivated = false;
     GameObject characterColl;
     public int posX;

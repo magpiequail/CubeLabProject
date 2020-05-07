@@ -1390,6 +1390,16 @@ PrefabInstance:
       propertyPath: attachedFloor
       value: 
       objectReference: {fileID: 20186510}
+    - target: {fileID: 842361093630813732, guid: 75df01ddf28758e4f94d7920c7e24a15,
+        type: 3}
+      propertyPath: posX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842361093630813732, guid: 75df01ddf28758e4f94d7920c7e24a15,
+        type: 3}
+      propertyPath: posY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 842361093630813734, guid: 75df01ddf28758e4f94d7920c7e24a15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1774,7 +1784,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySeconds: 1
   isOpened: 1
-  isAllOpen: 0
 --- !u!1 &735842950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4091,6 +4100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: posX
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 842361093630813732, guid: 75df01ddf28758e4f94d7920c7e24a15,
+        type: 3}
+      propertyPath: posY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 842361093630813734, guid: 75df01ddf28758e4f94d7920c7e24a15,
         type: 3}

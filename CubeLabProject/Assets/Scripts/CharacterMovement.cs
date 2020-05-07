@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     Animator characterAnim;
+    bool isUnitMoveAllowed = true;
     bool isInputAllowed = true;
     public bool isHavingRoundKey = false;
     public bool isHavingTriangleKey = false;
@@ -19,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     
     public Floor fl;
     private Door door;
+    Rigidbody2D rb;
     //public int charPosX = 2;
     //public int charPosY = 2;
 
@@ -26,17 +28,18 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         fl = floor.GetComponent<Floor>();
-        door = GameObject.FindObjectOfType<Door>();
+        //door = GameObject.FindObjectOfType<Door>();
         characterAnim = GetComponentInChildren<Animator>();
         transform.position = fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
 
         fl.gridArray[fl.charPosX, fl.charPosY].GetComponent<BlockStat>().currentBlock = 1;
+        rb = GetComponentInChildren<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (door.isAllOpen)
+        if (Door.isAllOpen)
         {
             isInputAllowed = false;
         }
@@ -44,108 +47,119 @@ public class CharacterMovement : MonoBehaviour
         //transform.position = fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
         transform.position = Vector3.MoveTowards(transform.position, fl.gridArray[fl.charPosX, fl.charPosY].transform.position, speed * Time.deltaTime);
         Vector3 dist = transform.position - fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
-        if (dist.sqrMagnitude < 0.1)
+        if (dist.sqrMagnitude < 0.001)
         {
-            characterAnim.SetInteger("Idle", 1);
-            isInputAllowed = true;
+            //characterAnim.SetInteger("Idle", 1);
+            isUnitMoveAllowed = true;
         }
         else
         {
-            isInputAllowed = false;
+            isUnitMoveAllowed = false;
+        }
+        if (rb.velocity.sqrMagnitude > 0.01f)
+        {
+            characterAnim.SetInteger("Idle", 0);
+        }
+        else
+        {
+            characterAnim.SetInteger("Idle", 1);
         }
         //for keyboard inputs
 
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            keyPressedTime += Time.deltaTime;
-            if (keyPressedTime > inputTriggerTime)
-            {
-                keyPressedTime = inputTriggerTime - inputWaitTime;
-                fl.SWMovement();
-                characterAnim.SetInteger("Idle", 0);
-            }
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            keyPressedTime += Time.deltaTime;
-            if (keyPressedTime > inputTriggerTime)
-            {
-                keyPressedTime = inputTriggerTime - inputWaitTime;
-                fl.SEMovement();
-                characterAnim.SetInteger("Idle", 0);
-            }
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            keyPressedTime += Time.deltaTime;
-            if (keyPressedTime > inputTriggerTime)
-            {
-                keyPressedTime = inputTriggerTime - inputWaitTime;
-                fl.NWMovement();
-                characterAnim.SetInteger("Idle", 0);
-            }
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            keyPressedTime += Time.deltaTime;
-            if (keyPressedTime > inputTriggerTime)
-            {
-                keyPressedTime = inputTriggerTime - inputWaitTime;
-                fl.NEMovement();
-                characterAnim.SetInteger("Idle", 0);
-            }
-        }
         if (isInputAllowed)
         {
-            
-            
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
-                fl.SWMovement();
-                //characterAnim.Play("Idle_SW");
-                //characterAnim.SetTrigger("Jump");
-                characterAnim.SetInteger("Direction", 3);
-                characterAnim.Play("Walk");
-                keyPressedTime = 0f;
+                keyPressedTime += Time.deltaTime;
+                if (keyPressedTime > inputTriggerTime)
+                {
+                    keyPressedTime = inputTriggerTime - inputWaitTime;
+                    fl.SWMovement();
+                    //characterAnim.SetInteger("Idle", 0);
+                }
             }
+            if (Input.GetKey(KeyCode.S))
+            {
+                keyPressedTime += Time.deltaTime;
+                if (keyPressedTime > inputTriggerTime)
+                {
+                    keyPressedTime = inputTriggerTime - inputWaitTime;
+                    fl.SEMovement();
+                    //characterAnim.SetInteger("Idle", 0);
+                }
+            }
+            if (Input.GetKey(KeyCode.Q))
+            {
+                keyPressedTime += Time.deltaTime;
+                if (keyPressedTime > inputTriggerTime)
+                {
+                    keyPressedTime = inputTriggerTime - inputWaitTime;
+                    fl.NWMovement();
+                    //characterAnim.SetInteger("Idle", 0);
+                }
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                keyPressedTime += Time.deltaTime;
+                if (keyPressedTime > inputTriggerTime)
+                {
+                    keyPressedTime = inputTriggerTime - inputWaitTime;
+                    fl.NEMovement();
+                    //characterAnim.SetInteger("Idle", 0);
+                }
+            }
+            if (isUnitMoveAllowed)
+            {
 
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                fl.SEMovement();
-                //characterAnim.Play("Idle_SE");
-                //characterAnim.SetTrigger("Jump");
-                characterAnim.SetInteger("Direction", 4);
-                characterAnim.Play("Walk_SE");
-                keyPressedTime = 0f;
-            }
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                fl.NWMovement();
-                //characterAnim.Play("Idle_NW");
-                //characterAnim.SetTrigger("Jump");
-                characterAnim.SetInteger("Direction", 1);
-                characterAnim.Play("Walk_NW");
-                keyPressedTime = 0f;
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                fl.NEMovement();
-                //characterAnim.Play("Idle_NE");
-                //characterAnim.SetTrigger("Jump");
-                characterAnim.SetInteger("Direction", 2);
-                characterAnim.Play("Walk_NE");
-                keyPressedTime = 0f;
-            }
-            if(Input.GetKeyUp(KeyCode.A) 
-                || Input.GetKeyUp(KeyCode.S) 
-                || Input.GetKeyUp(KeyCode.Q) 
-                || Input.GetKeyUp(KeyCode.W))
-            {
-                keyPressedTime = 0f;
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    fl.SWMovement();
+                    //characterAnim.Play("Idle_SW");
+                    //characterAnim.SetTrigger("Jump");
+                    characterAnim.SetInteger("Direction", 3);
+                    //characterAnim.Play("Walk");
+                    keyPressedTime = 0f;
+                }
+
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    fl.SEMovement();
+                    //characterAnim.Play("Idle_SE");
+                    //characterAnim.SetTrigger("Jump");
+                    characterAnim.SetInteger("Direction", 4);
+                    //characterAnim.Play("Walk_SE");
+                    keyPressedTime = 0f;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    fl.NWMovement();
+                    //characterAnim.Play("Idle_NW");
+                    //characterAnim.SetTrigger("Jump");
+                    characterAnim.SetInteger("Direction", 1);
+                    //characterAnim.Play("Walk_NW");
+                    keyPressedTime = 0f;
+                }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    fl.NEMovement();
+                    //characterAnim.Play("Idle_NE");
+                    //characterAnim.SetTrigger("Jump");
+                    characterAnim.SetInteger("Direction", 2);
+                    //characterAnim.Play("Walk_NE");
+                    keyPressedTime = 0f;
+                }
+                if (Input.GetKeyUp(KeyCode.A)
+                    || Input.GetKeyUp(KeyCode.S)
+                    || Input.GetKeyUp(KeyCode.Q)
+                    || Input.GetKeyUp(KeyCode.W))
+                {
+                    keyPressedTime = 0f;
+                }
             }
         }
+        
         
         
     }
