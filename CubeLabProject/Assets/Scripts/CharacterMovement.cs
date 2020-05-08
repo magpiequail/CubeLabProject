@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
     
     public Floor fl;
     private Door door;
-    Rigidbody2D rb;
+
     //public int charPosX = 2;
     //public int charPosY = 2;
 
@@ -33,8 +33,8 @@ public class CharacterMovement : MonoBehaviour
         transform.position = fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
 
         fl.gridArray[fl.charPosX, fl.charPosY].GetComponent<BlockStat>().currentBlock = 1;
-        rb = GetComponentInChildren<Rigidbody2D>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -43,27 +43,28 @@ public class CharacterMovement : MonoBehaviour
         {
             isInputAllowed = false;
         }
-
-        //transform.position = fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, fl.gridArray[fl.charPosX, fl.charPosY].transform.position, speed * Time.deltaTime);
-        Vector3 dist = transform.position - fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
-        if (dist.sqrMagnitude < 0.001)
-        {
-            //characterAnim.SetInteger("Idle", 1);
-            isUnitMoveAllowed = true;
-        }
         else
         {
-            isUnitMoveAllowed = false;
+            isInputAllowed = true;
         }
-        if (rb.velocity.sqrMagnitude > 0.01f)
+
+
+        transform.position = Vector3.MoveTowards(transform.position, fl.gridArray[fl.charPosX, fl.charPosY].transform.position, speed * Time.deltaTime);
+
+        Vector3 dist = transform.position - fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
+        if (dist.sqrMagnitude > 0.001) //move
         {
             characterAnim.SetInteger("Idle", 0);
+            isUnitMoveAllowed = false;
+
         }
-        else
+        else //idle
         {
             characterAnim.SetInteger("Idle", 1);
+            isUnitMoveAllowed = true;
         }
+
+        
         //for keyboard inputs
 
         if (isInputAllowed)

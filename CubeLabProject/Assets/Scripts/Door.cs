@@ -70,8 +70,8 @@ public class Door :MonoBehaviour
             text.SetActive(true);
 
             yield return new WaitForSeconds(1);
-            
-            if(SceneManager.GetActiveScene().buildIndex == 5)
+            isAllOpen = false;
+            if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 Application.Quit();
             }
