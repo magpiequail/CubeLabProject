@@ -20,11 +20,11 @@ public class RoundKey : MonoBehaviour
     {
         if (other.tag == "Character")
         {
-            if (Input.GetKeyDown(KeyCode.Space) && other.GetComponentInParent<CharacterMovement>().isHavingTriangleKey == false)
+            if (Input.GetKeyDown(KeyCode.Space) && other.GetComponentInParent<Character>().isHavingTriangleKey == false)
             {
                 gameObject.transform.SetParent(other.gameObject.transform);
                 gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
-                other.GetComponentInParent<CharacterMovement>().isHavingRoundKey = true;
+                other.GetComponentInParent<Character>().isHavingRoundKey = true;
             }
         }
     }
