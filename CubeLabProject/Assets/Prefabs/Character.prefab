@@ -118,7 +118,7 @@ MonoBehaviour:
   isHavingTriangleKey: 0
   floor: {fileID: 0}
   rows: 5
-  speed: 2
+  speed: 3
   inputTriggerTime: 0.5
   inputWaitTime: 0.2
   fl: {fileID: 0}

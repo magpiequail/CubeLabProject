@@ -52,16 +52,16 @@ public class CharacterMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, fl.gridArray[fl.charPosX, fl.charPosY].transform.position, speed * Time.deltaTime);
 
         Vector3 dist = transform.position - fl.gridArray[fl.charPosX, fl.charPosY].transform.position;
-        if (dist.sqrMagnitude > 0.001) //move
+        if (dist.sqrMagnitude > 0f) //move
         {
             characterAnim.SetInteger("Idle", 0);
-            isUnitMoveAllowed = false;
+            //isUnitMoveAllowed = false;
 
         }
         else //idle
         {
             characterAnim.SetInteger("Idle", 1);
-            isUnitMoveAllowed = true;
+            //isUnitMoveAllowed = true;
         }
 
         
@@ -119,7 +119,7 @@ public class CharacterMovement : MonoBehaviour
                     //characterAnim.Play("Idle_SW");
                     //characterAnim.SetTrigger("Jump");
                     characterAnim.SetInteger("Direction", 3);
-                    //characterAnim.Play("Walk");
+                    characterAnim.Play("Walk");
                     keyPressedTime = 0f;
                 }
 
@@ -129,7 +129,7 @@ public class CharacterMovement : MonoBehaviour
                     //characterAnim.Play("Idle_SE");
                     //characterAnim.SetTrigger("Jump");
                     characterAnim.SetInteger("Direction", 4);
-                    //characterAnim.Play("Walk_SE");
+                    characterAnim.Play("Walk_SE");
                     keyPressedTime = 0f;
                 }
 
@@ -139,7 +139,7 @@ public class CharacterMovement : MonoBehaviour
                     //characterAnim.Play("Idle_NW");
                     //characterAnim.SetTrigger("Jump");
                     characterAnim.SetInteger("Direction", 1);
-                    //characterAnim.Play("Walk_NW");
+                    characterAnim.Play("Walk_NW");
                     keyPressedTime = 0f;
                 }
                 if (Input.GetKeyDown(KeyCode.W))
@@ -148,7 +148,7 @@ public class CharacterMovement : MonoBehaviour
                     //characterAnim.Play("Idle_NE");
                     //characterAnim.SetTrigger("Jump");
                     characterAnim.SetInteger("Direction", 2);
-                    //characterAnim.Play("Walk_NE");
+                    characterAnim.Play("Walk_NE");
                     keyPressedTime = 0f;
                 }
                 if (Input.GetKeyUp(KeyCode.A)
