@@ -74,10 +74,13 @@
     <Compile Include="Assets\Scripts\EditBlock.cs" />
     <Compile Include="Assets\Scripts\Floor.cs" />
     <Compile Include="Assets\Scripts\InputSettings.cs" />
+    <Compile Include="Assets\Scripts\Laser.cs" />
     <Compile Include="Assets\Scripts\MoveCount.cs" />
     <Compile Include="Assets\Scripts\MovementSetting.cs" />
     <Compile Include="Assets\Scripts\Moves.cs" />
     <Compile Include="Assets\Scripts\RoundKey.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
+    <Compile Include="Assets\Scripts\Switch.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\TriangleKey.cs" />
     <Reference Include="Unity.Timeline.Editor">

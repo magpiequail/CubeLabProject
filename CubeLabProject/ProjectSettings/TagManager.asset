@@ -5,15 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Character
-  - Copier
-  - Diary
-  - Safe
-  - To Room1
-  - To Room2
-  - Room1
-  - Room2
-  - Living Room
   - Door
+  - Stage Clear
+  - Game Over
   layers:
   - Default
   - TransparentFX
