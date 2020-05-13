@@ -859,6 +859,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 737265326317587367, guid: ba4909d0f3b6c754eb9c0b39f1c0b8ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba4909d0f3b6c754eb9c0b39f1c0b8ab, type: 3}
 --- !u!1001 &169885486
@@ -4267,6 +4272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185380091621878928, guid: 05558bb6753680a48b7ba35e77d49d85,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1185380091621878929, guid: 05558bb6753680a48b7ba35e77d49d85,
         type: 3}
