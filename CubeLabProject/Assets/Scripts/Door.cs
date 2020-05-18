@@ -71,7 +71,7 @@ public class Door :MonoBehaviour
 
             yield return new WaitForSeconds(1);
             isAllOpen = false;
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 Application.Quit();
             }

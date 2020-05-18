@@ -5,10 +5,10 @@ using UnityEngine;
 public class Teleporter : MonoBehaviour
 {
     public GameObject otherTele;
-    public GameObject attachedFloor;
+    //public GameObject attachedFloor;
     bool isSpacePressed = false;
     //bool isCharOn;
-    bool isActivated = false;
+    public bool isActivated = false;
     GameObject characterColl;
     public int posX;
     public int posY;
@@ -24,15 +24,16 @@ public class Teleporter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isActivated)
         {
-            //캐릭터가 속한 플로어 바꾸기
-            characterColl.GetComponentInParent<CharacterMovement>().floor = otherTele.GetComponent<Teleporter>().attachedFloor;
-            //캐릭터의 플로어 스크립트 변경
-            characterColl.GetComponentInParent<CharacterMovement>().fl = characterColl.GetComponentInParent<CharacterMovement>().floor.GetComponent<Floor>();
+            ////캐릭터가 속한 플로어 바꾸기
+            //characterColl.GetComponentInParent<CharacterMovement>().floor = otherTele.GetComponent<Teleporter>().attachedFloor;
+            ////캐릭터의 플로어 스크립트 변경
+            //characterColl.GetComponentInParent<CharacterMovement>().fl = characterColl.GetComponentInParent<CharacterMovement>().floor.GetComponent<Floor>();
             //캐릭터의 위치 변경
             characterColl.transform.parent.gameObject.transform.position = otherTele.transform.position;
-
-            characterColl.GetComponentInParent<CharacterMovement>().fl.charPosX = otherTele.GetComponent<Teleporter>().posX;
-            characterColl.GetComponentInParent<CharacterMovement>().fl.charPosY = otherTele.GetComponent<Teleporter>().posY;
+            characterColl.GetComponentInParent<Character>().currPos = otherTele.transform.position;
+            characterColl.GetComponentInParent<Character>().nextPos = otherTele.transform.position;
+            //characterColl.GetComponentInParent<Character>().fl.charPosX = otherTele.GetComponent<Teleporter>().posX;
+            // characterColl.GetComponentInParent<Character>().fl.charPosY = otherTele.GetComponent<Teleporter>().posY;
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

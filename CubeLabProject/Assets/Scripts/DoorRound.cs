@@ -42,20 +42,5 @@ void Start()
 
         }
     }
-    //protected override void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    base.OnTriggerEnter2D(collision);
-    //    if (collision.tag == "Character" && collision.GetComponentInParent<CharacterMovement>().isHavingRoundKey)
-    //    {
-    //        isOpened = true;
-    //    }
-    //}
-    //protected override void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    base.OnTriggerExit2D(collision);
-    //    //    if (collision.tag == "Character")
-    //    //    {
-    //    //        isOpened = false;
-    //    //    }
-    //}
+
 }
