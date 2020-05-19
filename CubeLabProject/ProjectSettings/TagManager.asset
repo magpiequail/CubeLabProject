@@ -22,10 +22,10 @@ TagManager:
   - Accessible Floor
   - Left Camera
   - Right Camera
-  - 
-  - 
-  - 
-  - 
+  - Top Left Camera
+  - Bottom Left Camera
+  - Top Right Camera
+  - Bottom Right Camera
   - 
   - 
   - 

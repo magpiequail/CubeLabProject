@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoundKey : MonoBehaviour
 {
-
+    public float keyPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class RoundKey : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && other.GetComponentInParent<CharacterMovement>().isHavingTriangleKey == false)
             {
                 gameObject.transform.SetParent(other.gameObject.transform);
-                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
+                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + keyPosition);
                 other.GetComponentInParent<CharacterMovement>().isHavingRoundKey = true;
             }
         }

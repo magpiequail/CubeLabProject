@@ -14,6 +14,8 @@ public class SceneController : MonoBehaviour
     public static GameState gameState = GameState.Running;
     public GameObject gameOver;
 
+    
+
     private void Awake()
     {
         gameOver = GameObject.FindGameObjectWithTag("Game Over");
