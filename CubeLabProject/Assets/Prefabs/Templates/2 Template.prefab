@@ -780,7 +780,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.005319178, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -846,7 +846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f09298445453e74a87decdedf1825ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delaySeconds: 1.5
+  delayTillDoorOpen: 1
+  delayTillStageClear: 1
+  delayTillNextStage: 1.5
   isOpened: 1
 --- !u!1 &5946111397697978494
 GameObject:
@@ -1182,6 +1184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7558515723401617921}
     m_Modifications:
+    - target: {fileID: 1008796378, guid: 2194fc7d9764c714cb1d413b3d7c7033, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 616937822375028943, guid: 2194fc7d9764c714cb1d413b3d7c7033,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1241,6 +1247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 2 Cameras
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822956747957985215, guid: 2194fc7d9764c714cb1d413b3d7c7033,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2194fc7d9764c714cb1d413b3d7c7033, type: 3}
