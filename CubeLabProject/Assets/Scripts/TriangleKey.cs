@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TriangleKey : MonoBehaviour
 {
+    public float keyPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class TriangleKey : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)&&other.GetComponentInParent<CharacterMovement>().isHavingRoundKey == false)
             {
                 gameObject.transform.SetParent(other.gameObject.transform);
-                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
+                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + keyPosition );
                 other.GetComponentInParent<CharacterMovement>().isHavingTriangleKey = true;
             }
         }
