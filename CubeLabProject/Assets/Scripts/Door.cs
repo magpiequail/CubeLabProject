@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Door :MonoBehaviour
 {
-    public float delaySeconds = 1.5f;
+    public float delayTillDoorOpen = 1.0f;
+    public float delayTillStageClear=1.0f;
+    public float delayTillNextStage = 1.5f;
 
     public bool isOpened = true;
     protected bool isHavingKey;
@@ -45,6 +47,12 @@ public class Door :MonoBehaviour
         }
         return true;
     }
+
+    protected virtual void PlayOpenAnim()
+    {
+
+    }
+
     //protected virtual void OnTriggerEnter2D(Collider2D collision)
     //{
         
@@ -65,11 +73,16 @@ public class Door :MonoBehaviour
             isAllOpen = true;
 
 
-            yield return new WaitForSeconds(delaySeconds);
-            
+            yield return new WaitForSeconds(delayTillDoorOpen);
+            foreach(Door doors in doorsArray)
+            {
+                doors.PlayOpenAnim();
+            }
+
+            yield return new WaitForSeconds(delayTillStageClear);
             text.SetActive(true);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(delayTillNextStage);
             isAllOpen = false;
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
