@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Moves.cs" />
     <Compile Include="Assets\Scripts\RoundKey.cs" />
     <Compile Include="Assets\Scripts\SceneController.cs" />
+    <Compile Include="Assets\Scripts\SceneInfo.cs" />
     <Compile Include="Assets\Scripts\Switch.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\TriangleKey.cs" />

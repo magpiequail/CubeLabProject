@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharactersMovement : MonoBehaviour
 {
     Character[] charactersArray;
+    public static int remainingMoves;
 
     private void Awake()
     {

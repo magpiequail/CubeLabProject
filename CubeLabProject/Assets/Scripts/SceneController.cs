@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -38,4 +39,9 @@ public class SceneController : MonoBehaviour
             gameOver.SetActive(true);
         }
     }
+    public void BackToLobby()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
+
 }
