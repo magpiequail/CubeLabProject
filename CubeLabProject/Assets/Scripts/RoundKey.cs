@@ -9,6 +9,8 @@ public class RoundKey : MonoBehaviour
     Vector2 originPos;
     SpriteRenderer sprite;
     bool isWithChar = false;
+    bool isCharOn=false;
+    GameObject character;
 
     private void Awake()
     {
@@ -25,29 +27,37 @@ public class RoundKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isCharOn)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && character.GetComponent<CharacterMovement>().isHavingTriangleKey == false 
+                && character.GetComponent<CharacterMovement>().isHavingRoundKey == false)
+            {
+                isWithChar = true;
+                roundKeyAnim.SetInteger("State", 2);
+                gameObject.transform.SetParent(character.transform);
+                gameObject.transform.position = new Vector2(originPos.x, originPos.y + keyPosition);
+                character.GetComponent<CharacterMovement>().isHavingRoundKey = true;
+
+            }
+        }
         
     }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Character")
         {
+            isCharOn = true;
             roundKeyAnim.SetInteger("State", 1);
-            sprite.gameObject.transform.position = new Vector2(originPos.x, originPos.y + keyPosition);
-            if (Input.GetKeyDown(KeyCode.Space) && other.GetComponentInParent<CharacterMovement>().isHavingTriangleKey == false)
-            {
-                isWithChar = true;
-                roundKeyAnim.SetInteger("State", 2);
-                gameObject.transform.SetParent(other.gameObject.transform);
-                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + keyPosition);
-                other.GetComponentInParent<CharacterMovement>().isHavingRoundKey = true;
+            //sprite.gameObject.transform.position = new Vector2(originPos.x, originPos.y + keyPosition);
+            character = other.transform.parent.gameObject;
 
-            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Character" && !isWithChar)
         {
+            isCharOn = false;
             roundKeyAnim.SetInteger("State", 0);
             sprite.gameObject.transform.position = originPos;
         }
