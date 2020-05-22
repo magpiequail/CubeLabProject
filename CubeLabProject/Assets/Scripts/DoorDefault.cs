@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DoorDefault : Door
 {
+    Animator defaultDoorAnim;
 
     private void Awake()
     {
         isOpened = false;
-
+        defaultDoorAnim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -21,16 +22,11 @@ public class DoorDefault : Door
     void Update()
     {
 
-        if (isOpened == true)
-        {
-            Debug.Log("door is open");
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Character")
         {
-            Debug.Log("collision");
             isOpened = true;
         }
     }
@@ -43,23 +39,9 @@ public class DoorDefault : Door
         }
     }
 
-    //protected override void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    base.OnTriggerEnter2D(collision);
-    //    if (collision.tag == "Character")
-    //    {
-    //        Debug.Log("collision");
-    //        isOpened = true;
-    //    }
-    //}
-
-    //protected override void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    base.OnTriggerExit2D(collision);
-    //    //    if (collision.tag == "Character")
-    //    //    {
-    //    //        isOpened = false;
-    //    //    }
-    //}
-
+    protected override void PlayOpenAnim()
+    {
+        base.PlayOpenAnim();
+        defaultDoorAnim.SetInteger("Open", 2);
+    }
 }
