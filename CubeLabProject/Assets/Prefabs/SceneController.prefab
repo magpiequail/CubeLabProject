@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470833b6b1bd3774f8482264dd2da375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageClearMinMoves: 0
-  emotionMinMoves: 0
+  firstBattery: 10
+  secondBattery: 10
+  thirdBattery: 10
 --- !u!114 &5026729243466328649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
+  delayTillGameOver: 0
+  delayTillUI: 0
 --- !u!114 &-92846712665676191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,4 +75,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613c9978bf420544786611814159ec83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingMoves: 50

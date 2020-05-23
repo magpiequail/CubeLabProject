@@ -61,6 +61,6 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(delayTillUI);
         gameOverUI.SetActive(true);
         isGameOver = true;
-        Time.timeScale = 0f;
+        
     }
 }

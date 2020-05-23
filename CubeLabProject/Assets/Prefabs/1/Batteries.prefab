@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 8210706857333586329}
   - component: {fileID: 4424303427556538866}
   - component: {fileID: 3447858463177505528}
-  - component: {fileID: 5803865505101421520}
   m_Layer: 5
   m_Name: ThirdBattery
   m_TagString: Untagged
@@ -229,24 +228,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5803865505101421520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014026290836750860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad570ee8ecb8a074ba556b078c967648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstBatt: {fileID: 0}
-  secondBatt: {fileID: 0}
-  thirdBatt: {fileID: 0}
-  first: {fileID: 0}
-  second: {fileID: 0}
-  third: {fileID: 0}
 --- !u!1 &3926823690457126348
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +313,7 @@ Animator:
   m_GameObject: {fileID: 3926823690457126348}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a188b0b12d2aed428945bfa94d23d33, type: 2}
+  m_Controller: {fileID: 9100000, guid: c4a30bf47bbb0ca4b988164f0f384f5c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -616,7 +597,7 @@ Animator:
   m_GameObject: {fileID: 7566143605567807450}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a188b0b12d2aed428945bfa94d23d33, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9976d288390f8a04a8cd5afd1d1d58ae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
