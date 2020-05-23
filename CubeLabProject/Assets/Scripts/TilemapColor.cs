@@ -24,9 +24,9 @@ public class TilemapColor : MonoBehaviour
     void Update()
     {
 
-        Vector3Int v3Int = new Vector3Int(x, y, 0);
-        tilemap.SetTileFlags(v3Int, TileFlags.None);
+        //Vector3Int v3Int = new Vector3Int(x, y, 0);
+        //tilemap.SetTileFlags(v3Int, TileFlags.None);
 
-        tilemap.SetColor(v3Int, (Color.red));
+        //tilemap.SetColor(v3Int, (Color.red));
     }
 }

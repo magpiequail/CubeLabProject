@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Character : MonoBehaviour
 {
@@ -231,9 +232,14 @@ public class Character : MonoBehaviour
             nextPos = currPos;
             return false;
         }
-        tmc.tilemap.RefreshAllTiles();
-        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
-        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+
+        //tmc.tilemap.RefreshAllTiles();
+        //tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        //tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+        //Vector3Int v3Int = new Vector3Int(tmc.x, tmc.x, 0);
+        //tmc.tilemap.SetTileFlags(v3Int, TileFlags.None);
+        //tmc.tilemap.SetColor(v3Int, (Color.red));
+
         characterAnim.SetInteger("Direction", 3);
         characterAnim.Play("Walk");
         characterAnim.SetInteger("Idle", 0);
@@ -248,9 +254,14 @@ public class Character : MonoBehaviour
             nextPos = currPos;
             return false;
         }
-        tmc.tilemap.RefreshAllTiles();
-        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
-        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+
+        //tmc.tilemap.RefreshAllTiles();
+        //tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        //tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+        //Vector3Int v3Int = new Vector3Int(tmc.x, tmc.x, 0);
+        //tmc.tilemap.SetTileFlags(v3Int, TileFlags.None);
+        //tmc.tilemap.SetColor(v3Int, (Color.red));
+
         characterAnim.SetInteger("Direction", 4);
         characterAnim.Play("Walk_SE");
         characterAnim.SetInteger("Idle", 0);
@@ -264,9 +275,14 @@ public class Character : MonoBehaviour
             nextPos = currPos;
             return false;
         }
-        tmc.tilemap.RefreshAllTiles();
-        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
-        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+
+        //tmc.tilemap.RefreshAllTiles();
+        //tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        //tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+        //Vector3Int v3Int = new Vector3Int(tmc.x, tmc.x, 0);
+        //tmc.tilemap.SetTileFlags(v3Int, TileFlags.None);
+        //tmc.tilemap.SetColor(v3Int, (Color.red));
+
         characterAnim.SetInteger("Direction", 1);
         characterAnim.Play("Walk_NW");
         characterAnim.SetInteger("Idle", 0);
@@ -281,15 +297,33 @@ public class Character : MonoBehaviour
             nextPos = currPos;
             return false;
         }
-        tmc.tilemap.RefreshAllTiles();
-        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
-        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+
+        //tmc.tilemap.RefreshAllTiles();
+        //tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        //tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
+        //Vector3Int v3Int = new Vector3Int(tmc.x, tmc.x, 0);
+        //tmc.tilemap.SetTileFlags(v3Int, TileFlags.None);
+        //tmc.tilemap.SetColor(v3Int, (Color.red));
+
         characterAnim.SetInteger("Direction", 2);
         characterAnim.Play("Walk_NE");
         characterAnim.SetInteger("Idle", 0);
         return true;
     }
+    void GetTile()
+    {
+        tmc.tilemap.RefreshAllTiles();
+        
+        Vector3 worldPoint = CameraManager.currentCam.ScreenToWorldPoint(nextPos);
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, transform.forward);
+        Debug.DrawRay(worldPoint, transform.forward * 10, Color.red, 0.3f);
+        if (hit)
+        {
+tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
 
+        }
+    }
 
 
 }

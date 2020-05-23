@@ -5,14 +5,15 @@ using UnityEngine;
 public class CharactersMovement : MonoBehaviour
 {
     Character[] charactersArray;
-    public int remainingMoves = 50;
+    //public int remainingMoves = 50;
 
     bool isInputAllowed = true;
-
+    Battery b;
 
     private void Awake()
     {
         charactersArray = FindObjectsOfType<Character>();
+        b = FindObjectOfType<Battery>();
     }
 
     // Start is called before the first frame update
@@ -33,13 +34,13 @@ public class CharactersMovement : MonoBehaviour
             isInputAllowed = true;
         }
 
-        if (isInputAllowed)
+        if (isInputAllowed && Battery.movesTillGameover >0)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
                 if (isAllCharMovedSW())
                 {
-                    remainingMoves -= 1;
+                    b.MinusOneMove();
                 }
             }
 
@@ -47,7 +48,7 @@ public class CharactersMovement : MonoBehaviour
             {
                 if (isAllCharMovedSE())
                 {
-                    remainingMoves -= 1;
+                    b.MinusOneMove();
                 }
             }
 
@@ -55,14 +56,14 @@ public class CharactersMovement : MonoBehaviour
             {
                 if (isAllCharMovedNW())
                 {
-                    remainingMoves -= 1;
+                    b.MinusOneMove();
                 }
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 if (isAllCharMovedNE())
                 {
-                    remainingMoves -= 1;
+                    b.MinusOneMove();
                 }
             }
         }

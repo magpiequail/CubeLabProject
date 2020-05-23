@@ -274,6 +274,16 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4613454617083497876, guid: ace1135be174d7e4c9c98b10c5b70765,
+        type: 3}
+      propertyPath: delayTillGameOver
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613454617083497876, guid: ace1135be174d7e4c9c98b10c5b70765,
+        type: 3}
+      propertyPath: delayTillUI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6681205599242736331, guid: ace1135be174d7e4c9c98b10c5b70765,
         type: 3}
       propertyPath: m_Lens.OrthographicSize
@@ -339,7 +349,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8237618780991783691, guid: ace1135be174d7e4c9c98b10c5b70765,
+        type: 3}
+      propertyPath: firstBattery
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237618780991783691, guid: ace1135be174d7e4c9c98b10c5b70765,
+        type: 3}
+      propertyPath: secondBattery
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8237618780991783691, guid: ace1135be174d7e4c9c98b10c5b70765,
+        type: 3}
+      propertyPath: thirdBattery
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672316114237451027, guid: ace1135be174d7e4c9c98b10c5b70765,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2556618070434387892, guid: ace1135be174d7e4c9c98b10c5b70765, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ace1135be174d7e4c9c98b10c5b70765, type: 3}
 --- !u!1001 &1199758177
 PrefabInstance:
