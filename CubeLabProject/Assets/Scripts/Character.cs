@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
     public Vector2 currPos;
 
     public LayerMask accessible;
+    TilemapColor tmc;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class Character : MonoBehaviour
 
         currPos = transform.position;
         nextPos = transform.position;
+        tmc = FindObjectOfType<TilemapColor>();
     }
 
     // Start is called before the first frame update
@@ -57,14 +59,14 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Door.isAllOpen)
-        {
-            isInputAllowed = false;
-        }
-        else
-        {
-            isInputAllowed = true;
-        }
+        //if (Door.isAllOpen)
+        //{
+        //    isInputAllowed = false;
+        //}
+        //else
+        //{
+        //    isInputAllowed = true;
+        //}
 
 
         //transform.position = Vector3.MoveTowards(transform.position, fl.gridArray[fl.charPosX, fl.charPosY].transform.position, speed * Time.deltaTime);
@@ -190,7 +192,7 @@ public class Character : MonoBehaviour
                 characterAnim.SetInteger("Idle", 1);
             }
 
-        if (isInputAllowed)
+        /*if (isInputAllowed)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -214,58 +216,78 @@ public class Character : MonoBehaviour
                 NEMovement();
                 //footAnim.Play("Foot_NE");
             }
-        }
+        }*/
         
 
 
 
     }
 
-    public void SWMovement()
+    public bool SWMovement()
     {
         nextPos = new Vector2(currPos.x - gridX, currPos.y - gridY);
         if (!Physics2D.OverlapCircle(nextPos, 0.1f, accessible))
         {
             nextPos = currPos;
+            return false;
         }
+        tmc.tilemap.RefreshAllTiles();
+        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
         characterAnim.SetInteger("Direction", 3);
         characterAnim.Play("Walk");
         characterAnim.SetInteger("Idle", 0);
+        return true;
     }
-    public void SEMovement()
+    public bool SEMovement()
     {
 
         nextPos = new Vector2(currPos.x + gridX, currPos.y - gridY);
         if (!Physics2D.OverlapCircle(nextPos, 0.1f, accessible))
         {
             nextPos = currPos;
+            return false;
         }
+        tmc.tilemap.RefreshAllTiles();
+        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
         characterAnim.SetInteger("Direction", 4);
         characterAnim.Play("Walk_SE");
         characterAnim.SetInteger("Idle", 0);
+        return true;
     }
-    public void NWMovement()
+    public bool NWMovement()
     {
         nextPos = new Vector2(currPos.x - gridX, currPos.y + gridY);
         if (!Physics2D.OverlapCircle(nextPos, 0.1f, accessible))
         {
             nextPos = currPos;
+            return false;
         }
+        tmc.tilemap.RefreshAllTiles();
+        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
         characterAnim.SetInteger("Direction", 1);
         characterAnim.Play("Walk_NW");
         characterAnim.SetInteger("Idle", 0);
+        return true;
     }
    
-    public void NEMovement()
+    public bool NEMovement()
     {
         nextPos = new Vector2(currPos.x + gridX, currPos.y + gridY);
         if (!Physics2D.OverlapCircle(nextPos, 0.1f, accessible))
         {
             nextPos = currPos;
+            return false;
         }
+        tmc.tilemap.RefreshAllTiles();
+        tmc.x = tmc.tilemap.WorldToCell(nextPos).x;
+        tmc.y = tmc.tilemap.WorldToCell(nextPos).y;
         characterAnim.SetInteger("Direction", 2);
         characterAnim.Play("Walk_NE");
         characterAnim.SetInteger("Idle", 0);
+        return true;
     }
 
 

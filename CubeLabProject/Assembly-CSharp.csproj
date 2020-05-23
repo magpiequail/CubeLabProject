@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\SceneInfo.cs" />
     <Compile Include="Assets\Scripts\Switch.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />
+    <Compile Include="Assets\Scripts\TilemapColor.cs" />
     <Compile Include="Assets\Scripts\TriangleKey.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/CubeLabProject/CubeLabProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

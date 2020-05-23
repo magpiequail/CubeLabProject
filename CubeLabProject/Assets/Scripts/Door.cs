@@ -53,19 +53,7 @@ public class Door :MonoBehaviour
 
     }
 
-    //protected virtual void OnTriggerEnter2D(Collider2D collision)
-    //{
-        
-    //}
-
-    //protected virtual void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Character")
-    //    {
-    //        Debug.Log("triggerexit");
-    //        isOpened = false;
-    //    }
-    //}
+    
     IEnumerator Open()
     {
         if (IsAllDoorsOpen() == true)
