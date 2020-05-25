@@ -71,13 +71,25 @@ public class Door :MonoBehaviour
             text.SetActive(true);
 
             yield return new WaitForSeconds(delayTillNextStage);
+
+
+            Rate();
             isAllOpen = false;
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
-                Application.Quit();
+                SceneManager.LoadScene("Lobby");
             }
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             
         }
+    }
+    public void Rate()
+    {
+        if(PlayerPrefs.GetInt(""+ SceneManager.GetActiveScene().buildIndex+"stars") < Battery.stars)
+        {
+            PlayerPrefs.SetInt("" + SceneManager.GetActiveScene().buildIndex + "stars", Battery.stars);
+        }
+        
     }
 }

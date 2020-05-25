@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Stage Clear
   - Game Over
+  - Pause
   layers:
   - Default
   - TransparentFX

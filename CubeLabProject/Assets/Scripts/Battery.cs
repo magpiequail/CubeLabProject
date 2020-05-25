@@ -31,6 +31,7 @@ public class Battery : MonoBehaviour
     float thirdPercent;
 
     SceneInfo s;
+    public static int stars = 0;
 
     private void Awake()
     {
@@ -69,8 +70,24 @@ public class Battery : MonoBehaviour
         if(movesTillGameover == 0)
         {
             SceneController.gameState = GameState.GameOver;
+            stars = 0;
         }
+        if(Door.isAllOpen)
+        {
+            if (movesforEmotion != 0)
+            {
+                stars = 3;
+            }
+            else if (movesforEmotion == 0 && movesforStageClear != 0)
+            {
+                stars = 2;
 
+            }
+            else if (movesforEmotion == 0 && movesforStageClear == 0)
+            {
+                stars = 1;
+            }
+        }
     }
     public void MinusOneMove()
     {

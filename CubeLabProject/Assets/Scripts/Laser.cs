@@ -5,6 +5,8 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public bool isLaserActive = true;
+    public Sprite onSprite;
+    public Sprite offSprite;
     SpriteRenderer laserSprite;
     PolygonCollider2D laserCollider;
 
@@ -25,12 +27,12 @@ public class Laser : MonoBehaviour
     {
         if (!isLaserActive)
         {
-            laserSprite.enabled = false;
+            laserSprite.sprite = offSprite;
             laserCollider.enabled = false;
         }
         else
         {
-            laserSprite.enabled = true;
+            laserSprite.sprite = onSprite;
             laserSprite.enabled = true;
         }
     }

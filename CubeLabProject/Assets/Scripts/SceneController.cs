@@ -19,20 +19,24 @@ public class SceneController : MonoBehaviour
     public float delayTillGameOver;
     public float delayTillUI;
     bool isGameOver = false;
+    GameObject pauseUI;
     
 
     private void Awake()
     {
         gameOver = GameObject.FindGameObjectWithTag("Game Over");
         gameOverUI = gameOver.GetComponentInChildren<Button>().transform.parent.gameObject;
-        gameOver.SetActive(false);
+        
         gameState = GameState.Running;
+        pauseUI = GameObject.FindGameObjectWithTag("Pause");
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameOver.SetActive(false);
+        pauseUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,6 +46,16 @@ public class SceneController : MonoBehaviour
         {
             StartCoroutine(GameOver());
         }
+        if(Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.Running)
+        {
+            gameState = GameState.Paused;
+            pauseUI.SetActive(true);
+        }
+        //else if(Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.Paused)
+        //{
+        //    gameState = GameState.Running;
+        //    pauseUI.SetActive(false);
+        //}
     }
     public void BackToLobby()
     {
@@ -50,6 +64,14 @@ public class SceneController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void BackToLevelSelect()
+    {
+        SceneManager.LoadScene("Stage Select");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     IEnumerator GameOver()

@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Battery.cs" />
+    <Compile Include="Assets\Scripts\BgCameaManager.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharactersMovement.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\Legacy\BlockStat.cs" />
     <Compile Include="Assets\Scripts\Legacy\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Legacy\Floor.cs" />
+    <Compile Include="Assets\Scripts\LevelSelectButton.cs" />
     <Compile Include="Assets\Scripts\Lobby.cs" />
     <Compile Include="Assets\Scripts\MoveCount.cs" />
     <Compile Include="Assets\Scripts\MovementSetting.cs" />
