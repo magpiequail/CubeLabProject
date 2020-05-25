@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayTillDoorOpen: 1
-  delayTillStageClear: 1
+  delayTillStageClear: 2.5
   delayTillNextStage: 1.5
   isOpened: 1
 --- !u!1001 &415684779628111837
@@ -829,7 +829,7 @@ PrefabInstance:
     - target: {fileID: 4851966515889460222, guid: b0746e89def08f14cba4e81c000a109f,
         type: 3}
       propertyPath: orthographic size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4851966515889460223, guid: b0746e89def08f14cba4e81c000a109f,
         type: 3}

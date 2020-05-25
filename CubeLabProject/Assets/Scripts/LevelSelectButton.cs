@@ -5,6 +5,9 @@ using UnityEngine;
 public class LevelSelectButton : MonoBehaviour
 {
     public int buildIndex;
+    public Sprite oneStar;
+    public Sprite twoStars;
+    public Sprite threeStars;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,6 @@ public class LevelSelectButton : MonoBehaviour
     void Update()
     {
         PlayerPrefs.GetInt("" + buildIndex + "stars");
-        Debug.Log(PlayerPrefs.GetInt("" + buildIndex + "stars"));
+        
     }
 }

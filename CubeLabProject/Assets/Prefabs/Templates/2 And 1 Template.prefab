@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayTillDoorOpen: 1
-  delayTillStageClear: 1
+  delayTillStageClear: 2.5
   delayTillNextStage: 1.5
   isOpened: 1
 --- !u!1 &2834040484925899260

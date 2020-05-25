@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Door :MonoBehaviour
 {
     public float delayTillDoorOpen = 1.0f;
-    public float delayTillStageClear=1.0f;
+    public float delayTillStageClear=2.0f;
     public float delayTillNextStage = 1.5f;
 
     public bool isOpened = true;
